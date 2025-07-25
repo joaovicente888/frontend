@@ -1,0 +1,10 @@
+{
+    "name": "controle-de-gastos",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "node generate-env.js"
+    },
+    "devDependencies": {
+      "dotenv": "^16.4.5"
+    }
+  }	

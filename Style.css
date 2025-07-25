@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  --color-background: #0D1117;
+  --color-surface: #161B22;   
+  --color-primary-text: #E6EDF3; 
+  --color-secondary-text: #8B949E;
+  --color-accent: #30C8D6;      
+  --color-accent-glow: rgba(48, 200, 214, 0.3); 
+  --color-border: #30363D;       
+  --color-danger: #F85149;       
+
+  --font-primary: 'Poppins', sans-serif;
+  --font-monospace: 'Roboto Mono', monospace;
+
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-primary-text);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent-glow), 0 0 20px var(--color-accent-glow);
+}
+
+#gasto-form {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 15px;
+  margin-bottom: 40px;
+  background: var(--color-surface);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+}
+
+#gasto-form input {
+  flex-grow: 1;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 12px 15px;
+  color: var(--color-primary-text);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: all var(--transition-speed) ease;
+}
+
+#gasto-form input::placeholder {
+  color: var(--color-secondary-text);
+}
+
+
+#gasto-form input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+#gasto-form button {
+  background: var(--color-accent);
+  color: var(--color-background);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 25px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+#gasto-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--color-accent-glow);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#gastos-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#gastos-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+#gastos-list li:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gasto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gasto-descricao {
+  font-weight: 400;
+}
+
+.gasto-id {
+  font-family: var(--font-monospace);
+  color: var(--color-secondary-text);
+  font-size: 0.8rem;
+}
+
+.gasto-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  padding: 5px;
+  transition: all var(--transition-speed) ease;
+}
+
+.gasto-actions .edit-btn:hover {
+  color: var(--color-accent);
+  transform: scale(1.2);
+}
+
+.gasto-actions .delete-btn:hover {
+  color: var(--color-danger);
+  transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  #gasto-form {
+    flex-direction: column;
+  }
+}
